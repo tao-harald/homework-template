@@ -1,0 +1,31 @@
+\documentclass[12pt]{homework}
+
+\title{Matrix Analysis \quad Homework 6}
+\author{Tao}
+\email{tao@example.com}
+\institute{School of Mathematics}
+
+\begin{document}
+
+\maketitle
+
+\section*{Q1}
+\begin{proposition}
+    $\mathbf{A} \in M(n, \mathbb{C})$ is diagonalizable if and only if all generalized eigenvectors of matrix $\mathbf{A}$ is eigenvectors of matrix $\mathbf{A}$.
+\end{proposition}
+
+\begin{proof}
+    All generalized eigenvectors of matrix $\mathbf{A}$ is eigenvectors of matrix $\mathbf{A}$. 
+    
+    $\Leftrightarrow$
+    For all eigenvalues $\lambda$ of the matrix $\mathbf{A}$, 
+    \begin{equation*}
+        \operatorname{Ker}\left( (\mathbf{A} - \lambda \mathbf{I})^n \right) =  \operatorname{Ker}\left(\mathbf{A} - \lambda \mathbf{I} \right) .
+    \end{equation*}
+
+    $\Leftrightarrow$ For all eigenvalues $\lambda$ of the matrix $\mathbf{A}$, algebraic multiplicity of $\lambda$ equals to the geometric multiplicity  of $\lambda$.
+
+    $\Leftrightarrow$ $\mathbf{A}$ is diagonalizable.
+
+\end{proof}
+\end{document}
