@@ -16,7 +16,7 @@
 \LoadClass{article}
 
 
-\RequirePackage[margin=1.25in]{geometry}
+\RequirePackage[margin=1in]{geometry}
 \RequirePackage{hyperref}
 \RequirePackage{amsmath,amsfonts,amssymb,amsthm,mathtools,thmtools}
 \RequirePackage{kpfonts}
@@ -25,6 +25,8 @@
 \RequirePackage{sectsty}
 \RequirePackage[shortlabels,inline]{enumitem}
 \RequirePackage{iftex}
+\RequirePackage{mathtools}
+\RequirePackage{aligned-overset}
 
 \allowdisplaybreaks
 
@@ -82,12 +84,10 @@
   \ifx\1\empty}
 
 \def\maketitle{%
-  \null
-  \vskip 2em%
   \begin{center}%
     \let \footnote \thanks{%
       \color{maincolor} \LARGE\bfseries \@title \par}%
-    \vskip 1.5em
+    \vskip 1em
     \@author
     \IfEmpty\email
     \else 

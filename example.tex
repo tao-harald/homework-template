@@ -9,23 +9,39 @@
 
 \maketitle
 
-\section*{Q1}
-\begin{proposition}
-    $\mathbf{A} \in M(n, \mathbb{C})$ is diagonalizable if and only if all generalized eigenvectors of matrix $\mathbf{A}$ are eigenvectors of matrix $\mathbf{A}$.
-\end{proposition}
+\section*{1.2.P15} 
+Suppose that $\mathbf{A}(t) \in M_n$ is a given continuous matrix-valued function and each of the vector valued functions $x_1(t) , \cdots, x_n(t) \in \mathbb{C}^n$ satisfies the system of ordinary differential equations
+\begin{equation*}
+    x^\prime _j (t) = \mathbf{A}(t) x _j (t).
+\end{equation*}
 
-\begin{proof}
-    All generalized eigenvectors of matrix $\mathbf{A}$ is eigenvectors of matrix $\mathbf{A}$. 
-    
-    $\Leftrightarrow$
-    For all eigenvalues $\lambda$ of the matrix $\mathbf{A}$, 
-    \begin{equation*}
-        \operatorname{Ker}\left( (\mathbf{A} - \lambda \mathbf{I})^n \right) =  \operatorname{Ker}\left(\mathbf{A} - \lambda \mathbf{I} \right) .
-    \end{equation*}
+Let $\mathbf{X}(t) = [x_1(t) \; \cdots \; x_n(t)]$ and let $W(t) = \det \mathbf{X}(t)$. Use (0.8.10) and (0.8.2.11) and provide details for the following argument:
+\begin{equation*}
+    \begin{aligned}
+        W^{\prime}(t) &=\sum_{j=1}^{n} \operatorname{det}\left(\mathbf{X}(t) \xleftarrow[j]{} x_{j}^{\prime}(t)\right)=\operatorname{tr}\left[\operatorname{det}\left(\mathbf{X}(t) \xleftarrow[i]{} x_{j}^{\prime}(t)\right)\right]_{i, j=1}^{n} \\
+        &=\operatorname{tr}\left((\operatorname{adj} \mathbf{X}(t)) \mathbf{X}^{\prime}(t)\right)=\operatorname{tr}((\operatorname{adj} \mathbf{X}(t)) \mathbf{A}(t) \mathbf{X}(t))=W(t) \operatorname{tr} \mathbf{A}(t).
+    \end{aligned}
+\end{equation*}
+Thus, $W(t)$ satisfies the scalar differential equation $W^\prime (t) = \operatorname{tr} \mathbf{A}(t)W(t)$, whose solution is \textit{Abel’s formula} for the \textit{Wronskian}
+\begin{equation*}
+    W(t)=W\left(t_{0}\right) e^{\int_{t_{0}}^{t} \operatorname{tr} \mathbf{A}(s) \mathrm{d} s}.
+\end{equation*}
+Conclude that if the vectors $x_1(t) , \cdots, x_n(t)$ are linearly independent for $t=t_0$, then they are linearly independent for all $t$. How did you use the identity $\operatorname{tr} (\mathbf{B}\mathbf{C}) = \operatorname{tr} (\mathbf{C}\mathbf{B})$ (1.2.P2)?
 
-    $\Leftrightarrow$ For all eigenvalues $\lambda$ of the matrix $\mathbf{A}$, algebraic multiplicity of $\lambda$ equals to the geometric multiplicity  of $\lambda$.
+\begin{solution}
+    \begin{align*}
+        W^\prime (t) &= \frac{d}{dt} \det \mathbf{X}(t) \\
+        \overset{\text{(0.8.10)}}&{=} \sum_{j=1}^{n} \operatorname{det}\left(\mathbf{X}(t) \xleftarrow[j]{} x_{j}^{\prime}(t)\right) \\
+        &= \operatorname{tr}\left[\operatorname{det}\left(\mathbf{X}(t) \xleftarrow[i]{} x_{j}^{\prime}(t)\right)\right]_{i, j=1}^{n} \\
+        \overset{\text{(0.8.2.11)}}&{=} \operatorname{tr}\left((\operatorname{adj} \mathbf{X}(t)) \mathbf{X}^{\prime}(t)\right) \\
+        \overset{x^\prime _j (t) = \mathbf{A}(t) x _j (t)}&{=} \operatorname{tr}((\operatorname{adj} \mathbf{X}(t)) \mathbf{A}(t) \mathbf{X}(t)) \\
+        \overset{\operatorname{tr} (\mathbf{B}\mathbf{C})  = \operatorname{tr} (\mathbf{C}\mathbf{B})}&{=}  \operatorname{tr}( \mathbf{X}(t) (\operatorname{adj} \mathbf{X}(t)) \mathbf{A}(t))\\
+        &= \det \mathbf{X}(t) \operatorname{tr}  \mathbf{A}(t) = W(t) \operatorname{tr} \mathbf{A}(t).
+    \end{align*}
 
-    $\Leftrightarrow$ $\mathbf{A}$ is diagonalizable.
+    If the vectors $x_1(t) , \cdots, x_n(t)$ are linearly independent for $t=t_0$, $W(t) = \det \mathbf{X}(t) \neq 0$.
+    Hence $W(t)=W\left(t_{0}\right) e^{\int_{t_{0}}^{t} \operatorname{tr} \mathbf{A}(s) \mathrm{d} s} \neq 0$.
+    Therefore $x_1(t) , \cdots, x_n(t)$ are linearly independent for all $t$.
+\end{solution}
 
-\end{proof}
 \end{document}
